@@ -17,6 +17,8 @@
  *   the code with the same line commented out. If you don't do that, the next time 
  *   your Arduino resets, it will write the time again on the RTC... 
  *   the time of the code's compilation.
+ * Update:
+ *   An LED strip has been added that shines light down the sign from above.
  * 
  * Author:
  *   Nick Lamprianidis { paign10.ln [at] gmail [dot] com }
@@ -36,6 +38,7 @@
 
 #define DEBUG
 
+#define LED_STRIP  4
 #define GREEN_WIRE 5
 #define BLUE_WIRE  6
 
@@ -70,8 +73,10 @@ void setup ()
     #ifdef DEBUG
     Serial.begin (9600);
     while (!Serial) ;
+    Serial.println ("My-Shiny-Metal-Tooth\n");
     #endif
 
+    pinMode (LED_STRIP, OUTPUT);
     pinMode (GREEN_WIRE, OUTPUT);
     pinMode (BLUE_WIRE, OUTPUT);
     
@@ -123,6 +128,7 @@ void loop ()
             if (mNow > mSunset && mNow < TURN_OFF_TIME)
                 state = S_ON;
 
+            digitalWrite (LED_STRIP, LOW);
             digitalWrite (GREEN_WIRE, LOW);
             digitalWrite (BLUE_WIRE, LOW);
             break;
@@ -132,6 +138,8 @@ void loop ()
                 state = S_OFF;
                 break;
             }
+            
+            digitalWrite (LED_STRIP, HIGH);
             
             rNum = rand () % 12;
             if (rNum < 6)      state = L_ON;     // 50%
