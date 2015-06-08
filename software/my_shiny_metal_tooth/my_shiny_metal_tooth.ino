@@ -38,7 +38,7 @@
 
 #define DEBUG
 
-#define LED_STRIP  4
+#define LED_STRIP  9
 #define GREEN_WIRE 5
 #define BLUE_WIRE  6
 
@@ -128,7 +128,7 @@ void loop ()
             if (mNow > mSunset && mNow < TURN_OFF_TIME)
                 state = S_ON;
 
-            digitalWrite (LED_STRIP, LOW);
+            analogWrite (LED_STRIP, 0);
             digitalWrite (GREEN_WIRE, LOW);
             digitalWrite (BLUE_WIRE, LOW);
             break;
@@ -139,7 +139,7 @@ void loop ()
                 break;
             }
             
-            digitalWrite (LED_STRIP, HIGH);
+            analogWrite (LED_STRIP, 120);
             
             rNum = rand () % 12;
             if (rNum < 6)      state = L_ON;     // 50%
