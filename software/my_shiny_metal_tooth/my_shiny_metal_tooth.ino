@@ -21,10 +21,10 @@
  *   An LED strip has been added that shines light down the sign from above.
  * 
  * Author:
- *   Nick Lamprianidis { paign10.ln [at] gmail [dot] com }
+ *   Nick Lamprianidis <nlamprian@gmail.com>
  * 
  * Github repository:
- *   https://github.com/pAIgn10/My-Shiny-Metal-Tooth
+ *   https://github.com/nlamprian/My-Shiny-Metal-Tooth
  * 
  * License:
  *   Copyright (c) 2015 Nick Lamprianidis 
